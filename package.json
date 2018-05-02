@@ -1,0 +1,23 @@
+{
+  "name": "restdot",
+  "version": "1.0.0",
+  "description": "The non-sql database using rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "node .",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seriumium/restdot.git"
+  },
+  "author": "Let",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Seriumium/restdot/issues"
+  },
+  "homepage": "https://github.com/Seriumium/restdot#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Restdot; restful level database api</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+</head>
+<body>
+  <div class="container" style="margin-bottom: 10%" id="header">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h3>Restdot</h3>
+        <p>
+          Thought how to save something without losing it when deploy on Heroku. And now I found a way to solve that and I made a Restful API
+          <a href="https://github.com/Seriumium/restdot">Restdot (view on GitHub)</a>.
+          <br><br><a href="ko/index.html">한국어 페이지를 찾고 계신가요?</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-bottom: 10%" id="installutions">
+    <a href="#installutions">#installutions</a><h4>Installutions</h4>
+    <p>
+      You don't need to setup the server but I recommand you to setup the server before you start.
+      Before you get started check something not for productions. Reading file in Node JS is syncio function (There is asyncing function either but it does't allow multi-threading).
+      But express is always waitting for a client's request and it will add request to task queue to work (So it will work asyncio).
+    </p>
+    <pre><code>Restdot is using JSON file and we are going to alert you JSON won't support multi-threading</code></pre>
+    <p>
+      So what is need to install restdot? First you need to know restdot is the project based on Node JS. So if you have another enviroment, you won't start restdot server.
+      Restdot server is using skeleton-ui and express. The page root will show to the same page that you are looking at. Let's start install the dependencies.
+      <br>The following code will install all dependencies that needed to launch restdot: <code>npm i --save</code>. You can edit flags and its safe!
+      And the second step is starting the web-server and check it is ok. launch restdot server with <code>node index</code> and try access to <b>localhost</b>.
+      If the <b>localhost</b>'s page is same, go to your router and open the port. And optionally you can provide domain name for your own rest dot server.
+      For the references, scroll down.
+    </p>
+  </div>
+  <div class="container" id="references">
+    <a href="#references">#references</a><h4>References</h4>
+      <br><h5>/read</h5>
+    <p>You can use <code>/read</code> url to get all keys.</p>
+    <pre><code>http://localhost/read</code></pre>
+      <br><h5>/get</h5>
+    <p>Get key value that provided.</p>
+    <pre><code>http://localhost/get/:name</code></pre>
+      <br><h5>/set</h5>
+    <p>Set value of key.</p>
+    <pre><code>http://localhost/set/:name/:value</code></pre>
+      <br><h5>/delete</h5>
+    <p>Write the key value as undefined.</p>
+    <pre><code>http://localhost/delete/:name</code></pre>
+  </div>
+</body>
+</html>

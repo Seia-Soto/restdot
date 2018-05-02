@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Restdot; restful 레벨 데이터베이스 api</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+</head>
+<body>
+  <div class="container" style="margin-bottom: 10%" id="header">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h3>Restdot</h3>
+        <p>
+          Heroku에서 어떻게 하면 빌드 시에 데이터를 안전하게 보관할 수 있을지 생각했습니다. 그리고 지금 그 해결책을 찾았고 Restful API를 만들었습니다
+          <a href="https://github.com/Seriumium/restdot">Restdot (GitHub에서 보기)</a>.
+          <br><br><a href="../index.html">Are you looking for English?</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-bottom: 10%" id="installutions">
+    <a href="#installutions">#installutions</a><h4>설치</h4>
+    <p>
+      특별히 서버를 설정할 것이 없지만 저는 시작하기 전에 서버를 미리 설정하는 것을 권장합니다.
+      상품화하기 전에 몇가지를 미리 확인해주세요. Node JS에서 파일을 읽는 것은 동기 작업입니다 (비동기 작업도 존재하나 멀티 스레딩을 허용하지 않음).
+      하지만 express는 항상 클라이언트의 요청을 기다리고 있으며 그것은 작업 대기열에 작업을 추가합니다 (그래서 비동기 작업과 같이 작동할 것).
+    </p>
+    <pre><code>Restdot은 JSON 파일을 사용하고 있고 우리는 당신에게 JSON은 멀티 스레딩을 허용하지 않음을 말하려고 합니다</code></pre>
+    <p>
+      그래서 restdot을 설치하는데 무엇이 필요할까요? 먼저 restdot이 Node JS에 기반을 두었다는 것을 알아야 합니다. 그래서 다른 환경을 가지고 있다면 restdot을 실행하지 못할 것입니다.
+      Restdot 서버는 express와 skeleton-ui를 사용합니다. 루트 페이지는 지금 당신이 보고 있는 것과 같은 페이지를 보여줄 것입니다. 이제 의존성을 설치해봅시다.
+      <br>다음 명령행은 restdot을 실행하는 필요한 의존성을 설치할 것입니다: <code>npm i --save</code>. 플래그를 수정할 수 있으며 그것은 안전합니다!
+      그리고 다음 작업은 웹 서버를 실행한 뒤에 상태가 괜찮은지 확인하는 것입니다. 다음 명령행으로 restdot을 실행하고 <code>node index</code> <b>localhost</b>에 접근해보세요.
+      만약 <b>localhost</b>의 페이지가 같다면, 라우터에 가서 포트를 열어주시기 바랍니다. 그리고 선택적으로 도메인 이름을 서버에 부여할 수 있습니다.
+      참고서를 보려면 아래로 스크롤하세요.
+    </p>
+  </div>
+  <div class="container" id="references">
+    <a href="#references">#references</a><h4>참고서</h4>
+      <br><h5>/read</h5>
+    <p>모든 접속점를 가져오려면 <code>/read</code>를 사용하세요.</p>
+    <pre><code>http://localhost/read</code></pre>
+      <br><h5>/get</h5>
+    <p>주어진 접속점의 값을 가져옵니다.</p>
+    <pre><code>http://localhost/get/:name</code></pre>
+      <br><h5>/set</h5>
+    <p>접속점의 값을 설정합니다.</p>
+    <pre><code>http://localhost/set/:name/:value</code></pre>
+      <br><h5>/delete</h5>
+    <p>접속점을 <code>undefined</code>로 기록합니다.</p>
+    <pre><code>http://localhost/delete/:name</code></pre>
+  </div>
+</body>
+</html>
