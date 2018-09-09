@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 const application = express()
-const port = process.env.PORT || 80
+const port = 3001
 let dot = require('../data/index.json')
 let raw = fs.readFileSync(path.join(__dirname, '../data/index.json'))
 setInterval(() => {
@@ -15,6 +15,9 @@ application.use('/', express.static(path.join(__dirname, '../documentations')))
 application.listen(port, () => {
   console.log('Application is listening at 80')
 })
+application.get((request, response) => {
+  response.redirect('/')
+})
 application.get('/', (request, response) => {
   response.sendfile('index.html')
 })
@@ -23,7 +26,7 @@ application.get('/read', (request, response) => {
   response.json(dot)
 })
 application.get('/get/:name', (request, response) => {
-  let toGet = dot[request.params.name]
+  const toGet = dot[request.params.name]
   response.send('{ "' + request.params.name + '": "' + toGet + '" }')
 })
 application.get('/set/:name/:value', (request, response) => {

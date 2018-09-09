@@ -1,6 +1,6 @@
 {
   "name": "restdot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The non-sql database using rest api",
   "main": "index.js",
   "scripts": {
