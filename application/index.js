@@ -6,6 +6,7 @@ const application = express()
 const port = 3001
 let dot = require('../data/index.json')
 let raw = fs.readFileSync(path.join(__dirname, '../data/index.json'))
+
 setInterval(() => {
   dot = require('../data/index.json')
   raw = fs.readFileSync(path.join(__dirname, '../data/index.json'))
@@ -13,7 +14,7 @@ setInterval(() => {
 
 application.use('/', express.static(path.join(__dirname, '../documentations')))
 application.listen(port, () => {
-  console.log('Application is listening at 80')
+  console.log('Application is listening at 3001')
 })
 application.get((request, response) => {
   response.redirect('/')
@@ -42,4 +43,10 @@ application.get('/delete/:name', (request, response) => {
     if (error) { console.log(error); return }
     response.send('Writted to endpoint')
   })
+})
+application.get('/search/:name', (request, response) => {
+  const keyword = request.params.name
+  const sets = Object.values(dot)
+
+  response.send(`{"matched": "${sets[sets.indexOf(keyword)]}"}`)
 })
