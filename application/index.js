@@ -27,7 +27,7 @@ application.get('/read', (request, response) => {
   response.json(dot)
 })
 application.get('/get/:name', (request, response) => {
-  const toGet = dot[request.params.name]
+  const toGet = dot[request.params.name].value
   response.send('{ "' + request.params.name + '": "' + toGet + '" }')
 })
 application.get('/set/:name/:value', (request, response) => {
